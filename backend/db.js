@@ -19,5 +19,10 @@ app.use(
 );
 
 app.get("/api/kayitYap", (req, res) => {
-  // kaydetme ıslemı yapılacak
+  //   shema.insertMany(req.params);
+});
+
+const port = 3000;
+app.listen(port, () => {
+  console.log("Node js http sıkıntısız bır sekılde calıstı");
 });

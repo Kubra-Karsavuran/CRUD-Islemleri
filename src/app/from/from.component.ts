@@ -23,6 +23,7 @@ export class FromComponent {
   });
 
   onSubmit() {
+    console.log(this.formAdim.value);
     this.formkaydetService.verileriKaydet(this.formAdim.value);
   }
 }
