@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormkaydetService } from '../services/formkaydet.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'; // form işlemleri
-import { shema } from './shema';
 
 @Component({
   selector: 'app-from',
