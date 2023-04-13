@@ -3,7 +3,7 @@ const app = express();
 
 var shema = require("./shema");
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://127.0.0.1/crusPush", {
+mongoose.connect("mongodb://127.0.0.1/crudPush", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -19,7 +19,7 @@ app.use(
 );
 
 app.get("/api/kayitYap", (req, res) => {
-  //   shema.insertMany(req.params);
+  shema.insertMany(req.params);
 });
 
 const port = 3000;
