@@ -9,6 +9,6 @@ export class FormkaydetService {
   constructor(private http: HttpClient) {}
 
   verileriKaydet(formkayitlari: any) {
-    return this.http.get<shema[]>('/kayitYap' + formkayitlari);
+    return this.http.get<shema[]>('/api/kayitYap' + formkayitlari);
   }
 }
