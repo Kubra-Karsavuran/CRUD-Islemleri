@@ -20,9 +20,7 @@ app.use(
 
 // TODO KAYDETME İŞLEMİ
 app.post("/api/kayitYap", (req, res) => {
-  console.log("fonk geliyor");
   shema.insertOne(req.body);
-  // shema.create(req.body);
 });
 
 // TODO YANSITMA İŞLEMİ

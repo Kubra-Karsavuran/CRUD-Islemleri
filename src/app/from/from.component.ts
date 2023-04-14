@@ -27,10 +27,6 @@ export class FromComponent {
   onSubmit() {
     console.log(this.formAdim.value);
     this.formkaydetService.verileriKaydet(this.formAdim.value);
-
-    this.formkaydetService.yansit().subscribe((data) => {
-      this.kayitlilar = data;
-    });
   }
 
   liste_kismi: boolean = false;
@@ -40,6 +36,9 @@ export class FromComponent {
   liste() {
     this.liste_kismi = true;
     this.form_kismi = false;
+    this.formkaydetService.yansit().subscribe((data) => {
+      this.kayitlilar = data;
+    });
   }
 
   // TODO sayfa kapama
