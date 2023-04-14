@@ -14,6 +14,9 @@ export class FromComponent {
     private formkaydetService: FormkaydetService
   ) {}
 
+  liste_kismi: boolean = false;
+  form_kismi: boolean = true;
+
   // validationları parantez ıcınde burda belşrtebılıyoruz
   formAdim = new FormGroup({
     name: new FormControl(''),
@@ -25,5 +28,15 @@ export class FromComponent {
   onSubmit() {
     console.log(this.formAdim.value);
     this.formkaydetService.verileriKaydet(this.formAdim.value);
+  }
+
+  liste() {
+    this.liste_kismi = true;
+    this.form_kismi = false;
+  }
+
+  kapat() {
+    this.liste_kismi = false;
+    this.form_kismi = true;
   }
 }

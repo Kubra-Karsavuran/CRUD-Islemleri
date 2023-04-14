@@ -19,7 +19,9 @@ app.use(
 );
 
 app.post("/api/kayitYap", (req, res) => {
+  console.log("fonk geliyor");
   shema.insertOne(req.body);
+  // shema.create(req.body);
 });
 
 const port = 3000;

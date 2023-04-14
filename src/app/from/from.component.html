@@ -1,35 +1,105 @@
-<div class="row">
-  <div class="col-lg-4 col-md-12"></div>
-  <div class="col-lg-4 col-md-12">
-    <form [formGroup]="formAdim" (ngSubmit)="onSubmit()">
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Adı</label>
-        <input type="text" class="form-control" formControlName="name" />
+<div *ngIf="form_kismi">
+  <div class="container" style="background-color: aqua">
+    <div class="row">
+      <div class="col-lg-4 col-md-12"></div>
+      <div class="col-lg-4 col-md-12">
+        <h3 style="text-align: center">Kayıt Formu</h3>
+      </div>
+      <div class="col-lg-4 col-md-12"></div>
+    </div>
+  </div>
+  <br />
 
-        <!-- <h3 SORULACAK BURASI BAKALIM NE CIKACAK
+  <div class="row">
+    <div class="col-lg-4 col-md-12"></div>
+    <div class="col-lg-4 col-md-12">
+      <form [formGroup]="formAdim" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Adı</label>
+          <input type="text" class="form-control" formControlName="name" />
+
+          <!-- <h3 SORULACAK BURASI BAKALIM NE CIKACAK
           *ngIf="formAdim.get('name').touched && formAdim.get('name').invalid"
         >
           deneme
         </h3> -->
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Soyadı</label>
-        <input type="text" class="form-control" formControlName="surname" />
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Tel</label>
-        <input type="text" class="form-control" formControlName="tel" />
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Departman</label>
-        <input type="text" class="form-control" formControlName="dapartman" />
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-      <br />
-      <br />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Soyadı</label>
+          <input type="text" class="form-control" formControlName="surname" />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Tel</label>
+          <input type="text" class="form-control" formControlName="tel" />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label"
+            >Departman</label
+          >
+          <input type="text" class="form-control" formControlName="dapartman" />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <br />
+        <br />
 
-      <button type="submit" class="btn btn-secondary">Kayıt Olanlar</button>
-    </form>
+        <button type="submit" class="btn btn-secondary">
+          <a
+            (click)="liste()"
+            style="color: white; text-decoration: none"
+            href="/kayitlar"
+            >Kayıtlı Olanlar</a
+          >
+        </button>
+      </form>
+    </div>
+    <div class="col-lg-4 col-md-12"></div>
   </div>
-  <div class="col-lg-4 col-md-12"></div>
+</div>
+
+<!-- altta lıste var bakalım ne gelecek-->
+
+<div *ngIf="liste_kismi">
+  <div class="container">
+    <div class="row">
+      <div class="container" style="background-color: aqua">
+        <div class="row">
+          <div class="col-lg-4 col-md-12"></div>
+          <div class="col-lg-4 col-md-12">
+            <h3 style="text-align: center">Kayıt Listesi</h3>
+          </div>
+          <div class="col-lg-4 col-md-12"></div>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <br />
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Adı</th>
+              <th scope="col">Soyad</th>
+              <th scope="col">Tel</th>
+              <th scope="col">Departman</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>information</td>
+              <td>placeholder</td>
+              <td>illustrative</td>
+              <td>data</td>
+            </tr>
+            <tr>
+              <th scope="col">Adı</th>
+              <th scope="col">Soyad</th>
+              <th scope="col">Tel</th>
+              <th scope="col">Departman</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button (click)="kapat()" type="button" class="btn btn-success">
+        Geri Dön
+      </button>
+    </div>
+  </div>
 </div>
