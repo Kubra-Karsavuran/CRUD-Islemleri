@@ -20,7 +20,7 @@ app.use(
 
 // TODO KAYDETME İŞLEMİ
 app.post("/api/kayitYap", (req, res) => {
-  shema.insertOne(req.body);
+  shema.create(req.body);
 });
 
 // TODO YANSITMA İŞLEMİ

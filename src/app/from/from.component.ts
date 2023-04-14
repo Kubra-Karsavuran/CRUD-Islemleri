@@ -26,7 +26,7 @@ export class FromComponent {
   // verı kaydı oluyor burda
   onSubmit() {
     console.log(this.formAdim.value);
-    this.formkaydetService.verileriKaydet(this.formAdim.value);
+    this.formkaydetService.verileriKaydet(this.formAdim.value).subscribe();
   }
 
   liste_kismi: boolean = false;

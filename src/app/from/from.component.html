@@ -78,13 +78,13 @@
               <th scope="col">Güncelle</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody *ngFor="let kayitlilar of kayitlilar">
             <tr>
               <td>1,015</td>
-              <td>random</td>
-              <td>tabular</td>
-              <td>information</td>
-              <td>text</td>
+              <td>{{ kayitlilar.name }}</td>
+              <td>{{ kayitlilar.surname }}</td>
+              <td>{{ kayitlilar.tel }}</td>
+              <td>Departman</td>
               <td><button type="button" class="btn btn-danger">Sil</button></td>
               <td>
                 <button type="button" class="btn btn-info">Güncelle</button>
