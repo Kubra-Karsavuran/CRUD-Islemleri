@@ -1,7 +1,8 @@
-export interface shema {
-  id: number;
-  name: string;
-  surname: string;
-  departman: string;
-  tel: number;
+export class shema {
+  _id!: number;
+  name: string = '';
+  surname: string = '';
+  departman: string = '';
+  tel: string = '';
+  timestamp!: number;
 }

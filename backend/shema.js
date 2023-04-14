@@ -4,7 +4,7 @@ const shema = new mongoose.Schema({
   name: { type: String },
   surname: { type: String },
   departman: { type: String },
-  tel: { type: Number },
+  tel: { type: String },
   timestamp: { type: Date, default: Date.now },
 });
 

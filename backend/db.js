@@ -18,8 +18,8 @@ app.use(
   })
 );
 
-app.get("/api/kayitYap", (req, res) => {
-  schema.insertOne(req.params);
+app.post("/api/kayitYap", (req, res) => {
+  shema.insertOne(req.body);
 });
 
 const port = 3000;
