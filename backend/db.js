@@ -18,12 +18,21 @@ app.use(
   })
 );
 
+// TODO KAYDETME İŞLEMİ
 app.post("/api/kayitYap", (req, res) => {
   console.log("fonk geliyor");
   shema.insertOne(req.body);
   // shema.create(req.body);
 });
 
+// TODO YANSITMA İŞLEMİ
+app.get("/api/veriler", (req, res) => {
+  shema.find({}).then((posts) => {
+    res.send(posts);
+  });
+});
+
+// TODO BAĞLANTI
 const port = 3000;
 app.listen(port, () => {
   console.log("Node js http sıkıntısız bır sekılde calıstı");

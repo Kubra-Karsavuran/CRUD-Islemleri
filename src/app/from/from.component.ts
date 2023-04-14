@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormkaydetService } from '../services/formkaydet.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'; // form işlemleri
-
+import { shema } from './shema';
 @Component({
   selector: 'app-from',
   templateUrl: './from.component.html',
@@ -14,9 +14,6 @@ export class FromComponent {
     private formkaydetService: FormkaydetService
   ) {}
 
-  liste_kismi: boolean = false;
-  form_kismi: boolean = true;
-
   // validationları parantez ıcınde burda belşrtebılıyoruz
   formAdim = new FormGroup({
     name: new FormControl(''),
@@ -25,16 +22,27 @@ export class FromComponent {
     dapartman: new FormControl(''),
   });
 
+  kayitlilar: shema[] = [];
+  // verı kaydı oluyor burda
   onSubmit() {
     console.log(this.formAdim.value);
     this.formkaydetService.verileriKaydet(this.formAdim.value);
+
+    this.formkaydetService.yansit().subscribe((data) => {
+      this.kayitlilar = data;
+    });
   }
 
+  liste_kismi: boolean = false;
+  form_kismi: boolean = true;
+
+  // TODO listeleme
   liste() {
     this.liste_kismi = true;
     this.form_kismi = false;
   }
 
+  // TODO sayfa kapama
   kapat() {
     this.liste_kismi = false;
     this.form_kismi = true;

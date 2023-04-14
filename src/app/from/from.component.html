@@ -41,16 +41,10 @@
         <button type="submit" class="btn btn-primary">Submit</button>
         <br />
         <br />
-
-        <button type="submit" class="btn btn-secondary">
-          <a
-            (click)="liste()"
-            style="color: white; text-decoration: none"
-            href="/kayitlar"
-            >Kayıtlı Olanlar</a
-          >
-        </button>
       </form>
+      <button (click)="liste()" type="submit" class="btn btn-secondary">
+        Kayıtlı Olanlar
+      </button>
     </div>
     <div class="col-lg-4 col-md-12"></div>
   </div>
@@ -75,24 +69,20 @@
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th scope="col">Adı</th>
-              <th scope="col">Soyad</th>
-              <th scope="col">Tel</th>
-              <th scope="col">Departman</th>
+              <th scope="col">#</th>
+              <th scope="col">Header</th>
+              <th scope="col">Header</th>
+              <th scope="col">Header</th>
+              <th scope="col">Header</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody *ngFor="let kayitlilar of kayitlilar">
             <tr>
+              <td>1,015</td>
+              <td>random</td>
+              <td>tabular</td>
               <td>information</td>
-              <td>placeholder</td>
-              <td>illustrative</td>
-              <td>data</td>
-            </tr>
-            <tr>
-              <th scope="col">Adı</th>
-              <th scope="col">Soyad</th>
-              <th scope="col">Tel</th>
-              <th scope="col">Departman</th>
+              <td>text</td>
             </tr>
           </tbody>
         </table>
