@@ -2,7 +2,7 @@ export class shema {
   _id!: number;
   name: string = '';
   surname: string = '';
-  departman: string = '';
   tel: string = '';
+  dapartman: string = '';
   timestamp!: number;
 }

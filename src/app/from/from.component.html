@@ -10,43 +10,49 @@
   </div>
   <br />
 
-  <div class="row">
-    <div class="col-lg-4 col-md-12"></div>
-    <div class="col-lg-4 col-md-12">
-      <form [formGroup]="formAdim" (ngSubmit)="onSubmit()">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Adı</label>
-          <input type="text" class="form-control" formControlName="name" />
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-12"></div>
+      <div class="col-lg-4 col-md-12">
+        <form [formGroup]="formAdim" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Adı</label>
+            <input type="text" class="form-control" formControlName="name" />
 
-          <!-- <h3 SORULACAK BURASI BAKALIM NE CIKACAK
+            <!-- <h3 SORULACAK BURASI BAKALIM NE CIKACAK
           *ngIf="formAdim.get('name').touched && formAdim.get('name').invalid"
         >
           deneme
         </h3> -->
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Soyadı</label>
-          <input type="text" class="form-control" formControlName="surname" />
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Tel</label>
-          <input type="text" class="form-control" formControlName="tel" />
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label"
-            >Departman</label
-          >
-          <input type="text" class="form-control" formControlName="dapartman" />
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <br />
-        <br />
-      </form>
-      <button (click)="liste()" type="submit" class="btn btn-secondary">
-        Kayıtlı Olanlar
-      </button>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Soyadı</label>
+            <input type="text" class="form-control" formControlName="surname" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Tel</label>
+            <input type="text" class="form-control" formControlName="tel" />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Departman</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              formControlName="dapartman"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <br />
+          <br />
+        </form>
+        <button (click)="liste()" type="submit" class="btn btn-secondary">
+          Kayıtlı Olanlar
+        </button>
+      </div>
+      <div class="col-lg-4 col-md-12"></div>
     </div>
-    <div class="col-lg-4 col-md-12"></div>
   </div>
 </div>
 
@@ -84,7 +90,7 @@
               <td>{{ kayitlilar.name }}</td>
               <td>{{ kayitlilar.surname }}</td>
               <td>{{ kayitlilar.tel }}</td>
-              <td>Departman</td>
+              <td>{{ kayitlilar.dapartman }}</td>
               <td><button type="button" class="btn btn-danger">Sil</button></td>
               <td>
                 <button type="button" class="btn btn-info">Güncelle</button>

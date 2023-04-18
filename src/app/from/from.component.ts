@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormkaydetService } from '../services/formkaydet.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'; // form işlemleri
 import { shema } from './shema';
+import { AlertifyService } from '../services/alertify.service';
+
 @Component({
   selector: 'app-from',
   templateUrl: './from.component.html',
@@ -11,7 +13,8 @@ export class FromComponent {
   // dosya eklemelerı
   constructor(
     private formBuilder: FormBuilder,
-    private formkaydetService: FormkaydetService
+    private formkaydetService: FormkaydetService,
+    private alertifyService: AlertifyService
   ) {}
 
   // validationları parantez ıcınde burda belşrtebılıyoruz
@@ -23,10 +26,14 @@ export class FromComponent {
   });
 
   kayitlilar: shema[] = [];
-  // verı kaydı oluyor burda
+  //TODO verı kaydı oluyor burda
   onSubmit() {
     console.log(this.formAdim.value);
-    this.formkaydetService.verileriKaydet(this.formAdim.value).subscribe();
+    this.formkaydetService
+      .verileriKaydet(this.formAdim.value)
+      .subscribe((data) => {
+        this.alertifyService.kayitOldu('Kaydınız Gerçekleştirildi');
+      });
   }
 
   liste_kismi: boolean = false;
