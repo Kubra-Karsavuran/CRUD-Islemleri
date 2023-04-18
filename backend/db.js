@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
-
 var shema = require("./shema");
+
 const mongoose = require("mongoose");
 mongoose.connect("mongodb://127.0.0.1/crudPush", {
   useNewUrlParser: true,
@@ -28,6 +28,11 @@ app.get("/api/veriler", (req, res) => {
   shema.find({}).then((posts) => {
     res.send(posts);
   });
+});
+
+// TODO SİLME İŞLEMİ
+app.get("/api/kayitSil/:silmeislemi", (req, res) => {
+  shema.delete({ id: req.params.silmeislemi.id });
 });
 
 // TODO BAĞLANTI

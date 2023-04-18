@@ -3,7 +3,7 @@ import { FormkaydetService } from '../services/formkaydet.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'; // form işlemleri
 import { shema } from './shema';
 import { AlertifyService } from '../services/alertify.service';
-
+import { KayitSilmeService } from '../services/kayit-silme.service';
 @Component({
   selector: 'app-from',
   templateUrl: './from.component.html',
@@ -14,7 +14,8 @@ export class FromComponent {
   constructor(
     private formBuilder: FormBuilder,
     private formkaydetService: FormkaydetService,
-    private alertifyService: AlertifyService
+    private alertifyService: AlertifyService,
+    private kayitSilmeService: KayitSilmeService
   ) {}
 
   // validationları parantez ıcınde burda belşrtebılıyoruz
@@ -26,14 +27,14 @@ export class FromComponent {
   });
 
   kayitlilar: shema[] = [];
+  silmeislemi: shema[] = [];
   //TODO verı kaydı oluyor burda
-  onSubmit() {
+  onSubmit() {}
+
+  verileriKaydet() {
     console.log(this.formAdim.value);
-    this.formkaydetService
-      .verileriKaydet(this.formAdim.value)
-      .subscribe((data) => {
-        this.alertifyService.kayitOldu('Kaydınız Gerçekleştirildi');
-      });
+    this.formkaydetService.verileriKaydet(this.formAdim.value).subscribe();
+    this.alertifyService.kayitOldu('Kaydınız Gerçekleştirildi');
   }
 
   liste_kismi: boolean = false;
@@ -52,5 +53,10 @@ export class FromComponent {
   kapat() {
     this.liste_kismi = false;
     this.form_kismi = true;
+  }
+
+  //TODO silme işlemi
+  ListeSil(silmeislemi: shema): void {
+    this.kayitSilmeService.delete(silmeislemi).subscribe();
   }
 }

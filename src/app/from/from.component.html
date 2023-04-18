@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-lg-4 col-md-12"></div>
       <div class="col-lg-4 col-md-12">
-        <form [formGroup]="formAdim" (ngSubmit)="onSubmit()">
+        <form [formGroup]="formAdim" (ngSubmit)="verileriKaydet()">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Adı</label>
             <input type="text" class="form-control" formControlName="name" />
@@ -91,7 +91,15 @@
               <td>{{ kayitlilar.surname }}</td>
               <td>{{ kayitlilar.tel }}</td>
               <td>{{ kayitlilar.dapartman }}</td>
-              <td><button type="button" class="btn btn-danger">Sil</button></td>
+              <td>
+                <button
+                  (click)="ListeSil(kayitlilar)"
+                  type="button"
+                  class="btn btn-danger"
+                >
+                  Sil
+                </button>
+              </td>
               <td>
                 <button type="button" class="btn btn-info">Güncelle</button>
               </td>
