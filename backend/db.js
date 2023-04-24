@@ -31,8 +31,13 @@ app.get("/api/veriler", (req, res) => {
 });
 
 // TODO SİLME İŞLEMİ
+//direkt id verisi geliyor
 app.get("/api/kayitSil/:silmeislemi", (req, res) => {
-  shema.delete({ id: req.params.silmeislemi.id });
+  console.log("silinecek verının verılerı: " + req.params.silmeislemi);
+  const id = req.params.silmeislemi;
+  shema.findByIdAndDelete(id).then((posts) => {
+    console.log("silme işlemi oldu");
+  });
 });
 
 // TODO BAĞLANTI

@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class KayitSilmeService {
   constructor(private http: HttpClient) {}
 
-  delete(silmeislemi: shema): Observable<shema[]> {
+  delete(silmeislemi: any): Observable<shema[]> {
     return this.http.get<shema[]>('/api/kayitSil/' + silmeislemi);
   }
 }

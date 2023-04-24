@@ -1,9 +1,9 @@
 <div *ngIf="form_kismi">
-  <div class="container" style="background-color: aqua">
+  <div class="container" style="background-color: darkblue">
     <div class="row">
       <div class="col-lg-4 col-md-12"></div>
       <div class="col-lg-4 col-md-12">
-        <h3 style="text-align: center">Kayıt Formu</h3>
+        <h3 style="text-align: center; color: white">Kayıt Formu</h3>
       </div>
       <div class="col-lg-4 col-md-12"></div>
     </div>
@@ -17,7 +17,12 @@
         <form [formGroup]="formAdim" (ngSubmit)="verileriKaydet()">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Adı</label>
-            <input type="text" class="form-control" formControlName="name" />
+            <input
+              required
+              type="text"
+              class="form-control"
+              formControlName="name"
+            />
 
             <!-- <h3 SORULACAK BURASI BAKALIM NE CIKACAK
           *ngIf="formAdim.get('name').touched && formAdim.get('name').invalid"
@@ -27,17 +32,28 @@
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Soyadı</label>
-            <input type="text" class="form-control" formControlName="surname" />
+            <input
+              type="text"
+              required
+              class="form-control"
+              formControlName="surname"
+            />
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Tel</label>
-            <input type="text" class="form-control" formControlName="tel" />
+            <input
+              required
+              type="text"
+              class="form-control"
+              formControlName="tel"
+            />
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label"
               >Departman</label
             >
             <input
+              required
               type="text"
               class="form-control"
               formControlName="dapartman"
@@ -101,7 +117,13 @@
                 </button>
               </td>
               <td>
-                <button type="button" class="btn btn-info">Güncelle</button>
+                <button
+                  (click)="GuncellemeVeri(kayitlilar)"
+                  type="button"
+                  class="btn btn-info"
+                >
+                  Güncelle
+                </button>
               </td>
             </tr>
           </tbody>
@@ -111,5 +133,52 @@
         Geri Dön
       </button>
     </div>
+  </div>
+</div>
+
+<div *ngIf="guncel" class="container">
+  <div class="container" style="background-color: orange">
+    <div class="row">
+      <div class="col-lg-4 col-md-12"></div>
+      <div class="col-lg-4 col-md-12">
+        <h3 style="text-align: center">Güncelleme İşlemi</h3>
+      </div>
+      <div class="col-lg-4 col-md-12"></div>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-lg-4 col-md-12"></div>
+
+    <div class="col-lg-4 col-md-12">
+      <form [formGroup]="UpdateForm" (ngSubmit)="AsilGuncelleme()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Adı</label>
+          <input type="text" class="form-control" formControlName="name" />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Soyadı</label>
+          <input type="text" class="form-control" formControlName="surname" />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Tel</label>
+          <input type="text" class="form-control" formControlName="tel" />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label"
+            >Departman</label
+          >
+          <input type="text" class="form-control" formControlName="dapartman" />
+        </div>
+        <button type="submit" class="btn btn-primary">Güncelle</button>
+
+        <br />
+        <br />
+      </form>
+      <button (click)="kapat()" type="submit" class="btn btn-dark">
+        Kapat
+      </button>
+    </div>
+    <div class="col-lg-4 col-md-12"></div>
   </div>
 </div>
