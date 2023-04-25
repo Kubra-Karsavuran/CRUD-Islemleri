@@ -102,7 +102,6 @@
           </thead>
           <tbody *ngFor="let kayitlilar of kayitlilar">
             <tr>
-              <td>1,015</td>
               <td>{{ kayitlilar.name }}</td>
               <td>{{ kayitlilar.surname }}</td>
               <td>{{ kayitlilar.tel }}</td>
@@ -152,15 +151,6 @@
 
     <div class="col-lg-4 col-md-12">
       <form [formGroup]="UpdateForm" (ngSubmit)="AsilGuncelleme()">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Adı</label>
-          <input
-            value="{{ guncel_veri_id }}"
-            type="text"
-            class="form-control"
-          />
-        </div>
-
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Adı</label>
           <input type="text" class="form-control" formControlName="name" />

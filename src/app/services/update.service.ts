@@ -9,10 +9,9 @@ export class UpdateService {
   constructor(private http: HttpClient) {}
 
   updateWork(updateVerileri: any, guncel_veri_id: any) {
-    return this.http.post<shema[]>(
-      '/api/Update',
+    return this.http.post<shema[]>('/api/Update', {
       updateVerileri,
-      guncel_veri_id
-    );
+      guncel_veri_id,
+    });
   }
 }

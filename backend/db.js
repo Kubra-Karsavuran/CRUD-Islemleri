@@ -42,10 +42,31 @@ app.get("/api/kayitSil/:silmeislemi", (req, res) => {
 
 // TODO guncelleme ıslemı yapılacak
 app.post("/api/Update", (req, res) => {
-  // guncelleme işlemi yapılacak burda
-  console.log(req.body);
-  console.log(req.body.updateVerileri);
-  console.log(req.body.guncel_veri_id);
+  console.log(req.body); // verı
+  console.log(req.body.guncel_veri_id); // guncellenecek id
+
+  shema
+    .findOneAndUpdate(
+      {
+        _id: req.body.guncel_veri_id,
+      },
+      {
+        $set: {
+          name: req.body.updateVerileri.name,
+          surname: req.body.updateVerileri.surname,
+          tel: req.body.updateVerileri.tel,
+          department: req.body.updateVerileri.department,
+        },
+      }
+    )
+    .then((result) => {
+      res.status(200).json({
+        updated_product: result,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 // TODO BAĞLANTI

@@ -120,7 +120,7 @@ export class FromComponent {
     this.updateService
       .updateWork(this.UpdateForm.value, this.guncel_veri_id)
       .subscribe((data) => {
-        console.log('guncelleme yapıldı');
+        this.alertifyService.updateTrue('Güncelleme İşlemi Başarılı');
       });
   }
 }

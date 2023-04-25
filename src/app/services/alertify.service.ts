@@ -10,4 +10,8 @@ export class AlertifyService {
   kayitOldu(message: string) {
     alertify.success(message);
   }
+
+  updateTrue(message: string) {
+    alertify.success(message);
+  }
 }
