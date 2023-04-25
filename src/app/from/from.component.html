@@ -154,6 +154,15 @@
       <form [formGroup]="UpdateForm" (ngSubmit)="AsilGuncelleme()">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Adı</label>
+          <input
+            value="{{ guncel_veri_id }}"
+            type="text"
+            class="form-control"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Adı</label>
           <input type="text" class="form-control" formControlName="name" />
         </div>
         <div class="mb-3">

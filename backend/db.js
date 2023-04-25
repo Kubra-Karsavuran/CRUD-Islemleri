@@ -40,6 +40,14 @@ app.get("/api/kayitSil/:silmeislemi", (req, res) => {
   });
 });
 
+// TODO guncelleme ıslemı yapılacak
+app.post("/api/Update", (req, res) => {
+  // guncelleme işlemi yapılacak burda
+  console.log(req.body);
+  console.log(req.body.updateVerileri);
+  console.log(req.body.guncel_veri_id);
+});
+
 // TODO BAĞLANTI
 const port = 3000;
 app.listen(port, () => {
