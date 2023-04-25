@@ -55,7 +55,7 @@ app.post("/api/Update", (req, res) => {
           name: req.body.updateVerileri.name,
           surname: req.body.updateVerileri.surname,
           tel: req.body.updateVerileri.tel,
-          department: req.body.updateVerileri.department,
+          dapartman: req.body.updateVerileri.dapartman,
         },
       }
     )
